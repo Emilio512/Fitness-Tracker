@@ -38,9 +38,9 @@ router.post("/api/workouts", async (req, res) => {
 router.put("/api/workouts/:id", async (req, res) => {
   try {
     const moreData = await Workout.updateOne(
-      { _id: (req.params.id) },
+      { _id: req.params.id },
       { $push: {exercises: req.body} },
-      { new: true }
+      // { new: true }
     );
     res.json(moreData);
   } catch (err) {
