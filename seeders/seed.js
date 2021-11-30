@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const db = require('../models');
+require("dotenv").config();
 
-mongoose.connect('mongodb://localhost/workout',{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout",     {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  });
 
 const workoutSeed = [
   {
